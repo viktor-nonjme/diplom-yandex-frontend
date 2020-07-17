@@ -1,0 +1,17 @@
+@import url('./__button/header__button.css');
+@import url('./_main/header__nav-item_main.css');
+@import url('./_user/header__nav-item_user.css');
+
+.header__nav-item {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media (max-width: 776px) {
+  .header__nav-item {
+    font-size: 16px;
+  }
+}

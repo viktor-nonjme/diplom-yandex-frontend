@@ -1,0 +1,11 @@
+.footer__social-items {
+  display: flex;
+  list-style-type: none;
+}
+
+@media (max-width: 767px) {
+  .footer__social-items {
+    padding: 0;
+    margin-left: 25px;
+  }
+}

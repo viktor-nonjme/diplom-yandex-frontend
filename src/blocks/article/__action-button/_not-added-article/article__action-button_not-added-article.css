@@ -1,0 +1,7 @@
+.article__action-button_not-added-article {
+  opacity: .5;
+}
+
+.article__action-button_not-added-article:hover {
+  opacity: 1;
+}

@@ -1,0 +1,18 @@
+.header__nav-item_main {
+  margin: 0;
+  margin-right: 32px;
+  padding-bottom: 27px;
+
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.header__nav-item_active {
+  border-bottom: 3px solid #fff;
+}
+
+@media (max-width: 776px ) {
+  .header__nav-item_main {
+    margin-right: 28px;
+  }
+}

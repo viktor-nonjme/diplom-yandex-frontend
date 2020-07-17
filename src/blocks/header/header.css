@@ -1,0 +1,29 @@
+@import url('./__title/header__title.css');
+@import url('./__nav-items/header__nav-items.css');
+@import url('./__nav-item/header__nav-item.css');
+@import url('./__toggle/header__toggle.css');
+
+.header {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #c4c4c4;
+  z-index: 5;
+}
+
+.header_dark_mode {
+  margin-bottom: -83px;
+}
+
+.header_light_mode {
+  color: #1A1B22;
+  border-color: #1A1B22;
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 16px 0 15px 0;
+  }
+}

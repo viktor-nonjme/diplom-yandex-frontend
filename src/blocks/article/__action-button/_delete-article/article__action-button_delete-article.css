@@ -1,0 +1,8 @@
+.article__action-button_delete-article {
+  opacity: .5;
+}
+
+.article__action-button_delete-article:hover {
+  opacity: 1;
+}
+

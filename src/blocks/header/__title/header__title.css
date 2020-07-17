@@ -1,0 +1,24 @@
+.header__link {
+  margin: 0;
+  font-family: Roboto-Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  margin-left: 104px;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+@media (max-width: 999px) {
+  .header__link {
+    font-size: 16px;
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header__link {
+    margin-left: 16px;
+  }
+}

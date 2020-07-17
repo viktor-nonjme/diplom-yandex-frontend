@@ -1,0 +1,16 @@
+.footer__nav-item {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+@media (max-width: 776px) {
+  .footer__nav-item {
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer__nav-item {
+    padding: 0px;
+  }
+}
