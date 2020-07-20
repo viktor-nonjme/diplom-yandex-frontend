@@ -5,27 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Виктор">
+    <meta name="description" content="News Explorer - диплом Яндекс Практики">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <title>News Explorer | Главная</title>
-    <link rel="stylesheet" href="main/main.43aa9cf9103d39052c3f.css">
-<link href="main/main.43aa9cf9103d39052c3f.css" rel="stylesheet"></head>
+    <link rel="stylesheet" href="main/main.d51f9ae18c9153673ca8.css">
+<link href="main/main.d51f9ae18c9153673ca8.css" rel="stylesheet"></head>
 
 <body class="page">
 
   <header class="header header_dark_mode">
-    <a class="header__link" href="./index.html">NewsExplorer</a>
+    <a class="header__link" lang="en" title="Переход на главную страницу" href="../index.html">NewsExplorer</a>
     <button type="button" class="header__toggle header__toggle_light_closed"></button>
       <ul class="header__nav-items">
         <li class="header__nav-item">
-          <a class="header__nav-item_main header__nav-item_active" href="./index.html">Главная</a>
+          <a class="header__nav-item_main header__nav-item_active" title="Переход на главную страницу" href="./index.html">Главная</a>
         </li>
         <li class="header__nav-item">
-          <a class="header__nav-item_user" href="./user/index.html">Сохраненные статьи</a>
+          <a class="header__nav-item_user" title="Переход в аккаунт" href="./user/index.html">Сохраненные статьи</a>
         </li>
         <li class="header__nav-item">
-          <button class="header__button">Авторизоваться</button>
+          <button type="button" class="header__button">Авторизоваться</button>
         </li>
         <li class="header__nav-item" style="display: none;">
-          <button type="button" style="display: flex;" class="header__button"><p style="margin: 0;">Грета</p><img class="header__button_img" src=".././images/logout-light.svg"></button>
+          <button type="button" style="display: flex;" class="header__button">Грета<img class="header__button_img" src="./images/logout-light.svg" alt="Войти-выйти"></button>
         </li>
       </ul>
   </header>
@@ -36,7 +38,7 @@
       <h1 class="search__title">Что в мире творится?</h1>
       <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
       <form class="search__container">
-        <input class="search__input" placeholder="Введите тему новости">
+        <input type="text" class="search__input" placeholder="Введите тему новости" minlength="2" maxlength="30" required>
         <button class="search__button">Искать</button>
       </form>
     </section>
@@ -47,7 +49,7 @@
     </section>
 
     <section class="not-found">
-      <img src="./images/not-found.svg" alt="Картинка с грустной лупой" class="not-found__image" />
+      <img src="./images/not-found.svg" alt="Картинка с лупой" class="not-found__image" />
       <h2 class="not-found__title">Ничего не найдено</h2>
       <p class="not-found__text">
         К сожалению по вашему запросу ничего не найдено.
@@ -57,16 +59,16 @@
     <section class="articles">
       <h1 class="articles__result-title">Результаты поиска</h1>
       <div class="article-list">
-        <div class="article" id="">
+        <div class="article">
           <div class="article__action-container">
           <p class="article__search-keyword">Природа</p>
             <p class="article__action-description">Войдите чтобы сохранить статью</p>
-            <button type="button" class="article__action-button"><img class="article__action-button_not-added-article" src="./images/bookmark-black.svg"></button>
+            <button type="button" class="article__action-button"><img class="article__action-button_not-added-article" src="./images/bookmark-black.svg" alt="Добавить в избранное"></button>
           </div>
           <a href="" class="article__link" target="_blank">
             <img src="./images/image_06.png" alt="" class="article__image">
             <div class="article__description-container">
-              <time class="article__date" datetime="">2 августа, 2019</time>
+              <p class="article__date"><time datetime="2019-08-02"></time>2 августа, 2019</p>
               <h6 class="article__title">Национальное достояние – парки</h6>
               <p class="article__text">
                 В 2016 году Америка отмечала важный юбилей:
@@ -79,16 +81,16 @@
           </a>
         </div>
 
-        <div class="article" id="">
+        <div class="article">
           <div class="article__action-container">
           <p class="article__search-keyword">Природа</p>
             <p style="display: none;" class="article__action-description"></p>
-            <button type="button" class="article__action-button"><img class="article__action-button_not-added-article" src="./images/bookmark-black.svg"></button>
+            <button type="button" class="article__action-button"><img class="article__action-button_not-added-article" src="./images/bookmark-black.svg" alt="Добавить в избранное"></button>
           </div>
           <a href="" class="article__link" target="_blank">
             <img src="./images/image_06.png" alt="" class="article__image">
             <div class="article__description-container">
-              <time class="article__date" datetime="">2 августа, 2019</time>
+              <p class="article__date"><time datetime="2019-08-02"></time>2 августа, 2019</p>
               <h6 class="article__title">Национальное достояние – парки</h6>
               <p class="article__text">
                 В 2016 году Америка отмечала важный юбилей:
@@ -101,16 +103,16 @@
           </a>
         </div>
 
-        <div class="article" id="">
+        <div class="article">
           <div class="article__action-container">
           <p class="article__search-keyword">Природа</p>
             <p style="display: none;" class="article__action-description"></p>
-            <button type="button" class="article__action-button"><img class="article__action-button_added-article" src="./images/bookmark-blue.svg"></button>
+            <button type="button" class="article__action-button"><img class="article__action-button_added-article" src="./images/bookmark-blue.svg" alt="Добавить в избранное"></button>
           </div>
           <a href="" class="article__link" target="_blank">
             <img src="./images/image_06.png" alt="" class="article__image">
             <div class="article__description-container">
-              <time class="article__date" datetime="">2 августа, 2019</time>
+              <p class="article__date"><time datetime="2019-08-02"></time>2 августа, 2019</p>
               <h6 class="article__title">Национальное достояние – парки</h6>
               <p class="article__text">
                 В 2016 году Америка отмечала важный юбилей:
@@ -146,7 +148,7 @@
         <button type="button" class="popup__close popup__close_reg"></button>
         <form class="form form_reg" name="reg" id="reg" novalidate>
           <fieldset class="form__fieldset" name="fieldset">
-            <legend class="form__legend">Регистрация</legend>
+            <h2 class="form__legend">Регистрация</h2>
             <label for="registration-email" class="form__label">Email</label>
             <input type="email" name="regEmail" class="form__input form__input_email popup__input_type_reg" id="registration-email" pattern="^\w+([\.\-\]?\w+)@\w+([\.\-]?\w+)*(\.\w{2,8})$" placeholder="Введите почту" required />
             <p class="error error_type_email" id="regEmail"></p>
@@ -173,7 +175,7 @@
         <button type="button" class="popup__close popup__close_auth"></button>
         <form class="form form_auth" name="auth" id="auth" novalidate>
           <fieldset class="form__fieldset" name="fieldset">
-            <legend class="form__legend">Вход</legend>
+            <h2 class="form__legend">Вход</h2>
             <label for="authorization-email" class="form__label">Email</label>
             <input type="email" name="authEmail" class="form__input form__input_email popup__input_type_auth" id="authorization-email" pattern="^\w+([\.\-\]?\w+)@\w+([\.\-]?\w+)*(\.\w{2,8})$" placeholder="Введите почту" required />
             <p class="error error_type_email" id="authEmail"></p>
@@ -213,10 +215,10 @@
         <nav class="footer__nav">
           <ul class="footer__nav-items">
             <li class="footer__nav-item">
-              <a class="footer__nav-link" href="./index.html">Главная</a>
+              <a class="footer__nav-link" title="Переход на главную страницу" href="./index.html">Главная</a>
             </li>
             <li class="footer__nav_item">
-              <a class="footer__nav-link" href="https://praktikum.yandex.ru/" target="_blank">Яндекс Практикум</a>
+              <a class="footer__nav-link" title="Место учебы" href="https://praktikum.yandex.ru/" target="_blank">Яндекс Практикум</a>
             </li>
           </ul>
         </nav>
@@ -224,10 +226,10 @@
         <div class="footer__social">
           <ul class="footer__social-items">
             <li class="footer__social-item">
-              <a class="footer__social-link" href="https://github.com/viktor-nonjme" target="_blank"><img src="./images/vector.png" class="footer__social-img"></a>
+              <a class="footer__social-link" title="Мой github" href="https://github.com/viktor-nonjme" target="_blank"><img src="./images/vector.png" class="footer__social-img" alt="Github"></a>
             </li>
             <li class="footer__social-item">
-              <a class="footer__social-link" href="https://www.tiktok.com/@viktor.nonjme" target="_blank"><img src="./images/tiktok.png" class="footer__social-img"></a>
+              <a class="footer__social-link" title="Мой tiktok" href="https://www.tiktok.com/@viktor.nonjme" target="_blank"><img src="./images/tiktok.png" class="footer__social-img" alt="Tiktok"></a>
             </li>
           </ul>
         </div>
