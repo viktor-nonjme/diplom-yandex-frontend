@@ -11,6 +11,7 @@
   box-shadow: 0 5px 15px rgba(14, 26, 57, .2);
 
   cursor: pointer;
+  outline: none;
 }
 
 .header__button_img {

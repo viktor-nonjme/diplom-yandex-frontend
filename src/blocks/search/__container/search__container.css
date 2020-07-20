@@ -14,7 +14,7 @@
 
 @media (max-width: 500px) {
   .search__container {
-    max-width: 288px;
+    width: 288px;
     margin: 0 auto;
     margin-top: 109px;
     flex-direction: column;
