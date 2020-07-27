@@ -21,9 +21,6 @@ export default class Validation {
     if (input.validity.tooLong) {
       return error.textContent = this.ERRORS.tooLong;
     }
-    if (input.validity.patternMismatch) {
-      return this.responsePlace.textContent = this.ERRORS.patternMismatch;
-    }
 
     return error.textContent = '';
   }
