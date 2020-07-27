@@ -13,5 +13,15 @@
 @media (max-width: 776px) {
   .header__nav-item {
     font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
+}
+
+/* .header__nav-item_user-none {
+  display: none;
+} */
+
+.header__nav-item_logout {
+  display: none;
 }

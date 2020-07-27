@@ -1,6 +1,8 @@
-.article__action-button_not-added-article {
+.article__action-button_not-added-article::after {
+  content: url('../../../../images/bookmark-black.svg');
   opacity: .5;
 }
+
 
 .article__action-button_not-added-article:hover {
   opacity: 1;

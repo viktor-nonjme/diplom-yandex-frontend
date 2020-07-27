@@ -7,7 +7,7 @@
   border-radius: 10px;
   margin: 0 0 0 5px;
   background-color: white;
-  /* display: none; */
+  display: none;
   padding: 14px 10px;
   z-index: 10;
 }

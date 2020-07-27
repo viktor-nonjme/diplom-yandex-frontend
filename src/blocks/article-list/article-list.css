@@ -4,8 +4,6 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 16px;
   justify-content: center;
-  /* padding-left: 102px;
-  padding-right: 102px; */
 }
 
 @media (max-width: 1000px) {

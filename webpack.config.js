@@ -46,6 +46,8 @@ module.exports = {
             options: {
               name: './images/[name].[ext]',
               esModule: false,
+              outputPath: './images',
+              publicPath: '../images'
             },
           },
           {
@@ -88,13 +90,13 @@ module.exports = {
       canPrint: true,
     }),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       filename: 'index.html',
       template: 'src/pages/main/index.html',
       chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       filename: 'user/index.html',
       template: 'src/pages/user/index.html',
       chunks: ['user'],

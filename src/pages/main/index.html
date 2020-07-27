@@ -20,16 +20,17 @@
         <li class="header__nav-item">
           <a class="header__nav-item_main header__nav-item_active" title="Переход на главную страницу" href="./index.html">Главная</a>
         </li>
-        <li class="header__nav-item">
-          <a class="header__nav-item_user" title="Переход в аккаунт" href="./user/index.html">Сохраненные статьи</a>
+        <li class="header__nav-item header__nav-item_noactive">
+          <a class="header__nav-item_user header__nav-item_user-dark" title="Переход в аккаунт" href="./user/index.html">Сохраненные статьи</a>
         </li>
         <li class="header__nav-item">
-          <button type="button" class="header__button">Авторизоваться</button>
+          <button type="button" class="header__button header__button_auth">Авторизоваться</button>
         </li>
-        <li class="header__nav-item" style="display: none;">
-          <button type="button" style="display: flex;" class="header__button">Грета<img class="header__button_img" src="<%=require('../../images/logout-light.svg')%>" alt="Войти-выйти"></button>
+        <li class="header__nav-item header__nav-item_logout">
+          <button type="button" class="header__button header__button_logout"></button>
         </li>
       </ul>
+
   </header>
 
   <main class="main">
@@ -37,10 +38,11 @@
     <section class="search">
       <h1 class="search__title">Что в мире творится?</h1>
       <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
-      <form class="search__container">
-        <input type="text" class="search__input" placeholder="Введите тему новости" minlength="2" maxlength="30" required>
-        <button class="search__button">Искать</button>
+      <form class="search__container" id="search">
+        <input type="text" class="search__input" id="keyword" placeholder="Введите тему новости" minlength="2" maxlength="30" required>
+        <button id="buttonSearch" class="search__button" disabled>Искать</button>
       </form>
+      <p class="search__error"></p>
     </section>
 
     <section class="preloader">
@@ -56,76 +58,14 @@
       </p>
     </section>
 
+    <section class="request-error">
+      <h2 class="request-error__title">Во время запроса произошла ошибка.</h2>
+      <p class="request-error__text">Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.</p>
+    </section>
+
     <section class="articles">
       <h1 class="articles__result-title">Результаты поиска</h1>
-      <div class="article-list">
-        <div class="article">
-          <div class="article__action-container">
-          <p class="article__search-keyword">Природа</p>
-            <p class="article__action-description">Войдите чтобы сохранить статью</p>
-            <button type="button" class="article__action-button"><img class="article__action-button_not-added-article" src="<%=require('../../images/bookmark-black.svg')%>" alt="Добавить в избранное"></button>
-          </div>
-          <a href="" class="article__link" target="_blank">
-            <img src="<%=require('../../images/image_06.png')%>" alt="" class="article__image">
-            <div class="article__description-container">
-              <p class="article__date"><time datetime="2019-08-02"></time>2 августа, 2019</p>
-              <h6 class="article__title">Национальное достояние – парки</h6>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей:
-                сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий,
-                где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Дзен</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="article">
-          <div class="article__action-container">
-          <p class="article__search-keyword">Природа</p>
-            <p style="display: none;" class="article__action-description"></p>
-            <button type="button" class="article__action-button"><img class="article__action-button_not-added-article" src="<%=require('../../images/bookmark-black.svg')%>" alt="Добавить в избранное"></button>
-          </div>
-          <a href="" class="article__link" target="_blank">
-            <img src="<%=require('../../images/image_06.png')%>" alt="" class="article__image">
-            <div class="article__description-container">
-              <p class="article__date"><time datetime="2019-08-02"></time>2 августа, 2019</p>
-              <h6 class="article__title">Национальное достояние – парки</h6>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей:
-                сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий,
-                где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Дзен</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="article">
-          <div class="article__action-container">
-          <p class="article__search-keyword">Природа</p>
-            <p style="display: none;" class="article__action-description"></p>
-            <button type="button" class="article__action-button"><img class="article__action-button_added-article" src="<%=require('../../images/bookmark-blue.svg')%>" alt="Добавить в избранное"></button>
-          </div>
-          <a href="" class="article__link" target="_blank">
-            <img src="<%=require('../../images/image_06.png')%>" alt="" class="article__image">
-            <div class="article__description-container">
-              <p class="article__date"><time datetime="2019-08-02"></time>2 августа, 2019</p>
-              <h6 class="article__title">Национальное достояние – парки</h6>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей:
-                сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий,
-                где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Дзен</p>
-            </div>
-          </a>
-        </div>
-
-      </div>
+      <div class="article-list"></div>
       <button type="button" class="articles__show-more">Показать еще</button>
     </section>
 
@@ -150,16 +90,16 @@
           <fieldset class="form__fieldset" name="fieldset">
             <h2 class="form__legend">Регистрация</h2>
             <label for="registration-email" class="form__label">Email</label>
-            <input type="email" name="regEmail" class="form__input form__input_email popup__input_type_reg" id="registration-email" pattern="^\w+([\.\-\]?\w+)@\w+([\.\-]?\w+)*(\.\w{2,8})$" placeholder="Введите почту" required />
-            <p class="error error_type_email" id="regEmail"></p>
+            <input type="email" name="regEmail" id="emailReg" class="form__input form__input_email popup__input_type_reg" pattern="^\w+([\.\-\]?\w+)@\w+([\.\-]?\w+)*(\.\w{2,8})$" placeholder="Введите почту" required>
+            <p class="error error_type_email"></p>
             <label for="registration-password" class="form__label">Пароль</label>
-            <input type="password" name="password" class="form__input form__input_password" id="registration-password" placeholder="Введите пароль" minlength="8" required />
-            <p class="error error_type_password" id="password"></p>
+            <input type="password" name="password" id="passwordReg" class="form__input form__input_password" id="registration-password" placeholder="Введите пароль" minlength="8" required>
+            <p class="error error_type_password"></p>
             <label for="registration-name" class="form__label">Имя</label>
-            <input type="text" name="name" class="form__input form__input_name" id="registration-name" placeholder="Введите свое имя" minlength="2" maxlength="30" required />
-            <p class="error error_type_name" id="name"></p>
-            <p class="error error_type_reg" id="error-reg"></p>
-            <button type="submit" class="button form__button" disabled>
+            <input type="text" name="name" id="nameReg" class="form__input form__input_name" placeholder="Введите свое имя" minlength="2" maxlength="30" required>
+            <p class="error error_type_name"></p>
+            <p class="error error_type_reg" id="response-reg"></p>
+            <button type="submit" id="submit" class="button form__button" disabled>
               Зарегистрироваться
             </button>
             <p class="form__sub-button-text">
@@ -177,13 +117,13 @@
           <fieldset class="form__fieldset" name="fieldset">
             <h2 class="form__legend">Вход</h2>
             <label for="authorization-email" class="form__label">Email</label>
-            <input type="email" name="authEmail" class="form__input form__input_email popup__input_type_auth" id="authorization-email" pattern="^\w+([\.\-\]?\w+)@\w+([\.\-]?\w+)*(\.\w{2,8})$" placeholder="Введите почту" required />
-            <p class="error error_type_email" id="authEmail"></p>
+            <input type="email" name="authEmail" id="email" class="form__input form__input_email popup__input_type_auth" pattern="^\w+([\.\-\]?\w+)@\w+([\.\-]?\w+)*(\.\w{2,8})$" placeholder="Введите почту" required>
+            <p class="error error_type_email"></p>
             <label for="authorization-password" class="form__label">Пароль</label>
-            <input type="password" name="authPassword" class="form__input form__input_password popup__input_type_password" id="authorization-password" placeholder="Введите пароль" minlength="8" maxlength="30" required />
-            <p class="error error_type_password" id="authPassword"></p>
-            <p class="error error_type_auth" id="error-auth"></p>
-            <button type="submit" class="button form__button" disabled>
+            <input type="password" name="authPassword" id="password"  class="form__input form__input_password popup__input_type_password" placeholder="Введите пароль" minlength="8" maxlength="30" required>
+            <p class="error error_type_password"></p>
+            <p class="error error_type_auth" id="response-auth"></p>
+            <button type="submit" class="button form__button" id="submit" disabled>
               Войти
             </button>
             <p class="form__sub-button-text">

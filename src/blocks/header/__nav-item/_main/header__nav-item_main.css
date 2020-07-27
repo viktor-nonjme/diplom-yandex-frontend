@@ -16,3 +16,9 @@
     margin-right: 28px;
   }
 }
+
+@media (max-width: 776px) {
+  .header__nav-item_active {
+    border-bottom: none;
+  }
+}

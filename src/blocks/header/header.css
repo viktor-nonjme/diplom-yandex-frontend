@@ -2,6 +2,7 @@
 @import url('./__nav-items/header__nav-items.css');
 @import url('./__nav-item/header__nav-item.css');
 @import url('./__toggle/header__toggle.css');
+@import url('./_is-opened/nav-mobile_is-opened.css');
 
 .header {
   width: 100%;
@@ -25,5 +26,11 @@
 @media (max-width: 767px) {
   .header {
     padding: 16px 0 15px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .header_light_mode {
+    background-color: #f5f6f7;
   }
 }

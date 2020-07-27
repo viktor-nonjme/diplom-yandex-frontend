@@ -10,6 +10,7 @@
   margin: 64px auto 0 auto;
   transition: all 0.2s ease-in-out;
   outline: none;
+  display: none;
 }
 
 .articles__show-more:hover {

@@ -5,10 +5,33 @@
 
   color: #FFFFFF;
   text-decoration: none;
+
 }
 
 @media (max-width: 776px) {
   .header__nav-item_user {
     margin-right: 28px;
+  }
+}
+
+.header__nav-item_noactive {
+  display: none;
+}
+
+.header__nav-item_user-dark {
+  color: rgb(160, 160, 160);
+}
+
+.header__nav-item_user-dark:hover {
+  color: #fff;
+}
+
+.header__nav-item_user-dark_border {
+  border-bottom: 3px solid #1A1B22;
+}
+
+@media (max-width: 776px) {
+  .header__nav-item_user-dark_border {
+    border-bottom: none;
   }
 }

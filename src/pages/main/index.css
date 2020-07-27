@@ -11,3 +11,7 @@
 @import url('../../blocks/not-found/not-found.css');
 @import url('../../blocks/article-list/article-list.css');
 @import url('../../blocks/article/article.css');
+@import url('../../blocks/form/form.css');
+@import url('../../blocks/error/error.css');
+@import url('../../blocks/success/success.css');
+@import url('../../blocks/request-error/request-error.css');
