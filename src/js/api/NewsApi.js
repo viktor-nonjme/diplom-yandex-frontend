@@ -35,7 +35,7 @@ export default class NewsApi {
         });
     } else {
       const url =
-        `https://praktikum.tk/news/v2` +
+        `https://praktikum.tk/news/v2/` +
         `${this.endpoint}?` +
         `q=${keyword}&` +
         `from=${year}-0${month}-${weekAgo}&` +
