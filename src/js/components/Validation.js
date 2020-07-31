@@ -12,8 +12,8 @@ export default class Validation {
     if (input.validity.tooShort) {
       return error.textContent = this.ERRORS.tooShort;
     }
-    if (input.validity.valueMissing) {
-      return error.textContent = this.ERRORS.valueMissing;
+    if (input.validity.patternMismatch) {
+      return error.textContent = this.ERRORS.patternMismatch;
     }
     if (input.validity.typeMismatch) {
       return error.textContent = this.ERRORS.typeMismatch;

@@ -10,10 +10,18 @@ export default class PopupReg extends Popup {
   }
   registration() {
     event.preventDefault();
-    const { emailReg, nameReg, passwordReg } = this.form.elements;
+    const { emailReg, nameReg, passwordReg, button } = this.form.elements;
+
+    this.form.elements.forEach(element => {
+      element.setAttribute('disabled', true);
+    });
+
     this.api.signup(emailReg.value, nameReg.value, passwordReg.value)
       .then(() => {
         this.close();
+      })
+      .then(() => {
+        this.form.reset();
       })
       .then(() => {
         this.popupTrue.open();
@@ -29,5 +37,10 @@ export default class PopupReg extends Popup {
           this.placeForResponse.textContent = 'На сервере произошла ошибка';
         }
       })
+      .finally(() => {
+        this.form.elements.forEach(element => {
+          element.removeAttribute('disabled');
+        });
+      });
   }
 }

@@ -1,7 +1,5 @@
 import './index.css';
 
-redirect()
-
 import MainApi from '../../js/api/MainApi';
 import Header from '../../js/components/Header';
 import ArticlesList from '../../js/components/ArticlesList';
@@ -12,6 +10,7 @@ import MAIN_API_OPTIONS from '../../js/constants/main-api';
 import MONTHS from '../../js/constants/months';
 
 import dates from '../../js/utils/dates';
+import redirect from '../../js/utils/redirect';
 
 const api = new MainApi(MAIN_API_OPTIONS);
 const details = new Details(
@@ -22,6 +21,7 @@ const header = new Header(
   api,
   document.querySelector('.header'),
   document.querySelector('.header__toggle'),
+  redirect
 );
 const article = new Article(
   api,
@@ -34,12 +34,9 @@ const articlesList = new ArticlesList(
   document.querySelector('.article-list'),
   null,
   null,
-  null,
   article,
   null,
-  null,
   api,
-  null,
   null
 );
 
@@ -58,10 +55,4 @@ document.querySelector('.header__button_logout').addEventListener('click', () =>
 header.renderHeader();
 articlesList.renderSaveArticles();
 details.setInfo();
-
-function redirect() {
-  if (!localStorage.getItem('username')) {
-    document.location.href = '/';
-  }
-}
 

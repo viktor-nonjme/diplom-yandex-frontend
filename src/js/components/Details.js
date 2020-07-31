@@ -11,7 +11,7 @@ export default class Details {
     this.api.getArticles()
       .then(res => {
         this.countArticles.textContent = `${localStorage.getItem('username')}, у вас ${res.length} сохранённых статей`;
-        let keywords = []
+        const keywords = []
         res.forEach(el => {
           keywords.push(el.keyword);
         })

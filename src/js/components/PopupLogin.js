@@ -21,7 +21,11 @@ export default class PopupLogin extends Popup {
   }
   login() {
     event.preventDefault();
-    const { email, password } = this.form.elements;
+    const { email, password, button } = this.form.elements;
+
+    this.form.elements.forEach(element => {
+      element.setAttribute('disabled', true);
+    });
 
     this.api.signin(email.value, password.value)
       .then(res => {
@@ -32,6 +36,10 @@ export default class PopupLogin extends Popup {
         setTimeout(this.close(), 30000);
       })
       .then(() => {
+        this.form.reset();
+        this.placeForResponse.textContent = '';
+      })
+      .then(() => {
         this._getName();
       })
       .catch(res => {
@@ -39,5 +47,10 @@ export default class PopupLogin extends Popup {
           this.placeForResponse.textContent = 'Неправильный email или пароль';
         }
       })
+      .finally(() => {
+        this.form.elements.forEach(element => {
+          element.removeAttribute('disabled');
+        });
+      });
   }
 }

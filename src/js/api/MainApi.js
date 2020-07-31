@@ -15,7 +15,7 @@ export default class MainApi {
         password: password
       })
     })
-    .then(this.checkResponse);
+    .then(this._checkResponse);
   }
   signin(email, password) {
     return fetch(`${this.url}/signin`, {
@@ -27,7 +27,7 @@ export default class MainApi {
         password: password
       })
     })
-    .then(this.checkResponse);
+    .then(this._checkResponse);
   }
   getUserInfo() {
     return fetch(`${this.url}/users/me`, {
@@ -35,7 +35,7 @@ export default class MainApi {
       credentials: 'include',
       headers: this.headers
     })
-    .then(this.checkResponse);
+    .then(this._checkResponse);
   }
   saveArticle(keyword, title, text, date, source, link, image) {
     return fetch(`${this.url}/articles`, {
@@ -52,14 +52,14 @@ export default class MainApi {
         image: image
       })
     })
-    .then(this.checkResponse);
+    .then(this._checkResponse);
   }
   getArticles() {
     return fetch(`${this.url}/articles`, {
       method: 'GET',
       credentials: 'include'
     })
-    .then(this.checkResponse);
+    .then(this._checkResponse);
   }
   deleteArticle(id) {
     return fetch(`${this.url}/articles/${id}`, {
@@ -67,16 +67,16 @@ export default class MainApi {
       credentials: 'include',
       headers: this.headers
     })
-    .then(this.checkResponse);
+    .then(this._checkResponse);
   }
   logout() {
     return fetch(`${this.url}/logout`, {
       method: 'POST',
       credentials: 'include'
     })
-    .then(this.checkResponse)
+    .then(this._checkResponse)
   }
-  checkResponse(res) {
+  _checkResponse(res) {
     if (res.ok) {
       return res.json();
     }

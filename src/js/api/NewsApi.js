@@ -10,7 +10,11 @@ export default class NewsApi {
 
     const weekAgo = new Date().getDate() - 7;
     const year = new Date().getFullYear();
-    const month = new Date().getMonth() + 1;
+    const month = new Date().getMonth();
+    const hours = new Date().getHours();
+    const minutes = new Date().getMinutes();
+
+    const date = new Date(year, month, weekAgo, hours, minutes);
 
     const isDev = process.env.NODE_ENV === 'development';
 
@@ -20,7 +24,7 @@ export default class NewsApi {
         `${this.url}` +
         `${this.endpoint}?` +
         `q=${keyword}&` +
-        `from=${year}-0${month}-${weekAgo}&` +
+        `from=${date}&` +
         `sortBy=${this.sortBy}&` +
         `apiKey=${this.apiKey}`;
 
@@ -38,7 +42,7 @@ export default class NewsApi {
         `https://praktikum.tk/news/v2/` +
         `${this.endpoint}?` +
         `q=${keyword}&` +
-        `from=${year}-0${month}-${weekAgo}&` +
+        `from=${date}&` +
         `sortBy=${this.sortBy}&` +
         `apiKey=${this.apiKey}`;
 

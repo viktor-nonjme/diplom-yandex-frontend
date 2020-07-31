@@ -23,7 +23,7 @@
 }
 
 .search__input:focus {
-  box-shadow: 0 0 0 2px #347EFF;
+  box-shadow: 0 0 0 2px #c5c6c9;
 }
 
 @media (max-width: 500px) {

@@ -22,6 +22,7 @@ import REQUEST_ERROR_OPTIONS from '../../js/constants/request-error';
 import MONTHS from '../../js/constants/months';
 
 import dates from '../../js/utils/dates';
+import redirect from '../../js/utils/redirect';
 
 const popup = new Popup(document.querySelector('.popup'));
 const validationReg = new Validation(
@@ -47,6 +48,7 @@ const header = new Header(
   api,
   document.querySelector('.header'),
   document.querySelector('.header__toggle'),
+  redirect
 );
 const popupLogin = new PopupLogin(
   document.querySelector('.popup_type_auth'),
@@ -54,56 +56,62 @@ const popupLogin = new PopupLogin(
   document.querySelector('#response-auth'),
   header
 );
+const requestError = new RequestError(REQUEST_ERROR_OPTIONS);
+const preloader = new Preloader(PRELOADER_OPTIONS);
 const search = new Search(
   document.forms.search,
   ERRORS_VALIDATION,
   document.querySelector('.search__error'),
-  newsApi
+  newsApi,
+  preloader,
+  document.querySelector('.not-found'),
+  requestError,
+  document.querySelector('.articles__show-more'),
+  document.querySelector('.articles'),
 );
-const preloader = new Preloader(PRELOADER_OPTIONS);
 const article = new Article(
   api,
   null,
   dates,
   MONTHS
 );
-const requestError = new RequestError(REQUEST_ERROR_OPTIONS);
 const articlesList = new ArticlesList(
   document.querySelector('.articles'),
   document.querySelector('.article-list'),
   search,
-  newsApi,
   document.querySelector('.not-found'),
   article,
-  0,
   preloader,
   api,
-  document.querySelector('.articles__show-more'),
-  requestError
+  document.querySelector('.articles__show-more')
 );
 
 document.querySelector('.header__button').addEventListener('click', () => {
   popupReg.open();
+  validationReg.setSubmitButtonState();
 });
 document.querySelector('.form__sub-button-link_reg').addEventListener('click', () => {
   popupReg.open();
   popupLogin.close();
   validationLog.clearErrors();
   document.forms.auth.reset();
+  validationReg.setSubmitButtonState();
 });
 document.querySelector('.form__sub-button-link_auth').addEventListener('click', () => {
   popupLogin.open();
   popupReg.close();
   validationReg.clearErrors();
   document.forms.reg.reset();
+  validationLog.setSubmitButtonState();
 });
 document.querySelector('.success__auth-link').addEventListener('click', () => {
   popupLogin.open();
   popupSuc.close();
+  validationLog.setSubmitButtonState();
 });
 
-document.querySelector('.popup__close_reg').addEventListener('click', () => {
-  popup.close();
+document.querySelector('.popup__close_reg').addEventListener('click', (event) => {
+  popup.close(event);
   validationReg.clearErrors();
   document.forms.reg.reset();
 });
@@ -129,17 +137,14 @@ document.forms.search.addEventListener('input', (event) => {
   search.validateForm();
 });
 document.forms.search.addEventListener('submit', (event) => {
-  search.getInfo();
-  articlesList.render();
+  articlesList.renderNews();
 });
 
 document.forms.reg.addEventListener('submit', (event) => {
   popupReg.registration();
-  document.forms.reg.reset();
 });
 document.forms.auth.addEventListener('submit', () => {
   popupLogin.login();
-  document.forms.auth.reset();
 });
 
 document.querySelector('.header__toggle').addEventListener('click', () => {
@@ -150,7 +155,22 @@ document.querySelector('.header__button_logout').addEventListener('click', () =>
 });
 
 document.querySelector('.articles__show-more').addEventListener('click', () => {
-  articlesList.render();
+  articlesList.showMore();
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    popup.close();
+    popupLogin.close();
+    popupSuc.close();
+  }
+});
+window.addEventListener('click', (event) => {
+  if (event.target.classList.contains('popup')) {
+    popup.close();
+    popupLogin.close();
+    popupSuc.close();
+  }
 });
 
 document.querySelector('.article-list').addEventListener('click', (event) => {
@@ -158,3 +178,4 @@ document.querySelector('.article-list').addEventListener('click', (event) => {
 });
 
 header.renderHeader();
+search.validateForm();

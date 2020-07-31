@@ -1,74 +1,67 @@
 export default class ArticlesList {
-  constructor(section, container, search, newsApi, notFound, article, count, preloader, api, moreButton, requestError) {
+  constructor(section, container, search, notFound, article, preloader, api, moreButton) {
     this.section = section;
     this.container = container;
     this.search = search;
-    this.newsApi = newsApi;
     this.notFound = notFound;
     this.article = article;
-    this.count = count;
     this.preloader = preloader;
     this.api = api;
     this.moreButton = moreButton;
-    this.requestError = requestError;
   }
-  render() {
-    event.preventDefault();
+  async renderNews() {
+    const data = await this.search.getNewsData();
+    if (data.news.length !== 0) {
+      this.section.style.display = 'flex';
+    }
 
-    this.requestError.close();
+    this.container.innerHTML = '';
+    const keyword = data.key;
+    const news = JSON.parse(localStorage.getItem('articles'));
 
-    const key = this.search.getInfo();
-
-    this.newsApi.getNews(key)
-      .then((res) => {
-        this.preloader.open();
-        if(res.totalResults === 0) {
-          this.notFound.style.display = 'flex';
-          this.section.style.display = 'none';
-        }
-        if (res.totalResults > 0) {
-
-          this.notFound.style.display = 'none';
-          this.container.innerHTML = '';
-          res.articles.length = this.showMore();
-          res.articles.forEach(el => {
-            this.container
-            .insertAdjacentHTML('beforeend', this.article.create(
-              key,
-              el.url,
-              el.urlToImage,
-              el.publishedAt,
-              el.title,
-              el.description,
-              el.source.name,
-              '',
-              'article__action-button_not-added-article'
-              ))
-          });
-
-          this.section.style.display = 'flex';
-
-        }
-        if (res.totalResults > 3) {
-          this.moreButton.style.display = 'inline-block'
-        }
-      })
-      .catch((err) => {
-        console.log(err.message);
-        this.requestError.open();
-      })
-      .finally(() => {
-        this.preloader.close();
-      })
+    news.length = 3;
+    news.forEach(el => {
+      this.container
+      .insertAdjacentHTML('beforeend', this.article.create(
+        keyword,
+        el.url,
+        el.urlToImage,
+        el.publishedAt,
+        el.title,
+        el.description,
+        el.source.name,
+        '',
+        'article__action-button_not-added-article'
+      ));
+    })
+    this.preloader.close();
   }
   showMore() {
-    let n = 3;
-    return this.count += n;
+    const keyword = this.search.getInfo();
+    const j = Array.from(document.querySelectorAll('.article')).length - 1
+    const news = JSON.parse(localStorage.getItem('articles'));
+    for (let i = j; i < j+3; i++) {
+      this.container
+      .insertAdjacentHTML('beforeend', this.article.create(
+        keyword,
+        news[i].url,
+        news[i].urlToImage,
+        news[i].publishedAt,
+        news[i].title,
+        news[i].description,
+        news[i].source.name,
+        '',
+        'article__action-button_not-added-article'
+      ));
+      if (i === news.length -1 ) {
+        this.moreButton.style.display = 'none';
+        break;
+      }
+    }
   }
   renderSaveArticles() {
     this.api.getArticles()
       .then(res => {
-        console.log(res);
         if (res.length > 0) {
           res.forEach(el => {
             this.container
