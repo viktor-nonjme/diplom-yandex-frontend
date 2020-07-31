@@ -1,5 +1,5 @@
 export default function redirect() {
   if (!localStorage.getItem('username')) {
-    document.location.href = '../index.html';
+    document.location.href = 'diplom-yandex-frontend/index.html';
   }
 }
