@@ -179,3 +179,5 @@ document.querySelector('.article-list').addEventListener('click', (event) => {
 
 header.renderHeader();
 search.validateForm();
+
+console.log(document.location.href)

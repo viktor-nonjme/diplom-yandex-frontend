@@ -56,7 +56,9 @@ export default class Header {
           this.renderHeader();
         })
         .then(() => {
-          this.redirect();
+          if (document.location.href === 'https://viktor-nonjme.github.io/diplom-yandex-frontend/user/index.html') {
+            this.redirect();
+          }
         })
         .catch(res => {
           console.log(res.message)

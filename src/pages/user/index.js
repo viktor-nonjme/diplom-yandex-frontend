@@ -55,4 +55,4 @@ document.querySelector('.header__button_logout').addEventListener('click', () =>
 header.renderHeader();
 articlesList.renderSaveArticles();
 details.setInfo();
-
+redirect();
