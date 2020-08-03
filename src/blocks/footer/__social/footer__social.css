@@ -1,0 +1,16 @@
+.footer__social {
+  display: flex;
+  margin-right: 102px;
+}
+
+@media (max-width: 999px) {
+  .footer__social {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer__social {
+    margin-right: 16px;
+  }
+}

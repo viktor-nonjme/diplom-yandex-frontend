@@ -1,0 +1,9 @@
+.article__action-button_delete-article::after {
+  content: url('../../../../images/delete-icon.svg');
+  opacity: .5;
+}
+
+.article__action-button_delete-article:hover {
+  opacity: 1;
+}
+

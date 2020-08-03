@@ -1,0 +1,28 @@
+.author__container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 56px;
+  margin-right: 216px;
+  margin-top: 131px;
+}
+
+@media (max-width: 999px) {
+  .author__container {
+    margin-right: 40px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 776px) {
+  .author__container {
+    margin-left: 32px;
+  }
+}
+
+@media (max-width: 500px) {
+  .author__container {
+    margin-top: 24px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
